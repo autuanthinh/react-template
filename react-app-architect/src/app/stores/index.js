@@ -9,9 +9,11 @@ import ENV from '../../config';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas';
 
+export const browserHistory = createHistory();
+
 const storeConfig = () => {
     const sagaMiddleware = createSagaMiddleware();
-    const routesMiddleware = routerMiddleware(createHistory());
+    const routesMiddleware = routerMiddleware(browserHistory);
 
     const middlewares = [sagaMiddleware, routesMiddleware];
 

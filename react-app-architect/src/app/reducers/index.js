@@ -3,10 +3,12 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import reducerMyComApi from '../components/myComApi/reducer';
+import reducerLanguage from '../containers/LanguageProvider/reducer';
 
 const rootReducer = combineReducers({
     router: routerReducer,
-    reducerMyComApi,
+    reducerLanguage,
+    reducerMyComApi
 });
 
 export default rootReducer;

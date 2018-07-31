@@ -24,23 +24,12 @@ export default class API {
     fetch(url) {
         axios.defaults.baseURL = Config.API_SERVER;
         // axios.defaults.withCredentials = true;
-
         return axios.get(url);
     }
 
-    // fetchMulti(){
-    //     const path1 = 'url1';
-    //     const path2 = 'url2';
-    //     let res1 = ''; let res2 = '';
-    //     promises1 = this.fetch(path1).then((response) => { res1 = response; });
-    //     promises2 = this.fetch(path2).then((response) => { res2 = response; });
-    //     axios.all([promisesSubsidy, promisesDemandVsActual]).then(
-    //         axios.spread(function () {
-    //             console.log(res1, res2);
-    //         })).catch(e => {
-    //             console.log(e);
-    //         });
-    // }
+    fetchCrossDomain(url) {
+        return axios.get(url);
+    }
 
     get(url) {
         if (!this.token) {

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Router, Route, Switch, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import NotFound from '../components/NotFound';
@@ -25,9 +26,10 @@ class Routers extends PureComponent {
     }
 
     render() {
+        const { history } = this.props;
         const { routes } = this.state;
         return (
-            <BrowserRouter>
+            <Router history={history}>
                 <div className="main-container">
                     <Helmet titleTemplate="%s - React.js Boilerplate" defaultTitle="Default React.js Boilerplate">
                         <meta name="description" content="A React.js Boilerplate application" />
@@ -50,9 +52,13 @@ class Routers extends PureComponent {
                         <Route component={NotFound} />
                     </Switch>
                 </div>
-            </BrowserRouter>
+            </Router>
         );
     }
 }
+
+Routers.propTypes = {
+    history: PropTypes.object.isRequired
+};
 
 export default Routers;
